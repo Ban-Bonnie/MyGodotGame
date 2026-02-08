@@ -1,0 +1,135 @@
+[gd_scene load_steps=20 format=3 uid="uid://tgqrqdwlkwg1"]
+
+[ext_resource type="Texture2D" uid="uid://d4jkyuy0jbr0r" path="res://graphics/miscellaneous sprites/orb_collected_anim_strip_5.png" id="1_ti1xh"]
+[ext_resource type="Texture2D" uid="uid://nywjraiqv7po" path="res://graphics/miscellaneous sprites/orb_anim_strip_6.png" id="2_urg5t"]
+[ext_resource type="Script" uid="uid://5bgdf83rjy7b" path="res://script/orb.gd" id="3_urg5t"]
+[ext_resource type="AudioStream" uid="uid://d066idx8eii4i" path="res://audio/orb-collected-1.mp3" id="4_u41nq"]
+[ext_resource type="AudioStream" uid="uid://c28k503ouht" path="res://audio/orb-collected-2.mp3" id="5_mbmdq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3dsf"]
+atlas = ExtResource("1_ti1xh")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u41nq"]
+atlas = ExtResource("1_ti1xh")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbmdq"]
+atlas = ExtResource("1_ti1xh")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcca1"]
+atlas = ExtResource("1_ti1xh")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t2r5"]
+atlas = ExtResource("1_ti1xh")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh4pn"]
+atlas = ExtResource("2_urg5t")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyqo7"]
+atlas = ExtResource("2_urg5t")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfvr0"]
+atlas = ExtResource("2_urg5t")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df0un"]
+atlas = ExtResource("2_urg5t")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3ktd"]
+atlas = ExtResource("2_urg5t")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0y7q"]
+atlas = ExtResource("2_urg5t")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_76tdh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3dsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u41nq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbmdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcca1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t2r5")
+}],
+"loop": false,
+"name": &"collected",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bh4pn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyqo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfvr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df0un")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3ktd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0y7q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kdrql"]
+radius = 9.6
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u41nq"]
+radius = 1.5999999
+height = 19.2
+
+[node name="MagicOrb" type="AnimatedSprite2D"]
+z_index = 6
+scale = Vector2(1.875, 1.875)
+sprite_frames = SubResource("SpriteFrames_76tdh")
+autoplay = "default"
+script = ExtResource("3_urg5t")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -5.3333335)
+shape = SubResource("CircleShape2D_kdrql")
+
+[node name="OrbCollected1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_u41nq")
+volume_db = -10.0
+
+[node name="OrbCollected2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_mbmdq")
+volume_db = -10.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -6.4)
+shape = SubResource("CapsuleShape2D_u41nq")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

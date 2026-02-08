@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cauf62lwmxkhx"]
+
+[ext_resource type="Texture2D" uid="uid://c4fwdris8577e" path="res://graphics/miscellaneous sprites/arrow_plate_right.png" id="1_6jkja"]
+
+[node name="ArrowRight" type="Sprite2D"]
+texture = ExtResource("1_6jkja")

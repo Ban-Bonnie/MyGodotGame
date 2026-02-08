@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://sncq118lxaak"]
+
+[ext_resource type="Texture2D" uid="uid://1fcswf8le38h" path="res://graphics/miscellaneous sprites/arrow_plate_left.png" id="1_bgobg"]
+
+[node name="ArrowLeft" type="Sprite2D"]
+position = Vector2(9, -9)
+texture = ExtResource("1_bgobg")

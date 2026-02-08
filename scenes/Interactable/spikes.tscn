@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://0jp1ulwp6hfa"]
+
+[ext_resource type="Texture2D" uid="uid://dspg7tguriaoq" path="res://graphics/miscellaneous sprites/trap_spikes_anim_strip_7.png" id="1_irksb"]
+[ext_resource type="Script" uid="uid://cyelhyg6iil5e" path="res://script/spikes.gd" id="2_bpt4q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpt4q"]
+atlas = ExtResource("1_irksb")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpmsb"]
+atlas = ExtResource("1_irksb")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsjqw"]
+atlas = ExtResource("1_irksb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8unf"]
+atlas = ExtResource("1_irksb")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rh8q"]
+atlas = ExtResource("1_irksb")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68ij5"]
+atlas = ExtResource("1_irksb")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fl28u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpt4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpmsb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsjqw")
+}],
+"loop": false,
+"name": &"deactivate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8unf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rh8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68ij5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rh8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8unf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3abkc"]
+size = Vector2(16, 23)
+
+[node name="spikes" type="AnimatedSprite2D"]
+light_mask = 4
+visibility_layer = 2
+z_index = 6
+sprite_frames = SubResource("SpriteFrames_fl28u")
+autoplay = "default"
+frame_progress = 0.3430359
+script = ExtResource("2_bpt4q")
+
+[node name="Area2D" type="Area2D" parent="."]
+light_mask = 4
+visibility_layer = 2
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 4
+visibility_layer = 2
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_3abkc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

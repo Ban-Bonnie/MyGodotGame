@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://btp324ps4ax4o"
+path="res://.godot/imported/glorious evolution.ogg-8874257e458bfaabe7a7cd2d13f800c6.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/glorious evolution.ogg"
+dest_files=["res://.godot/imported/glorious evolution.ogg-8874257e458bfaabe7a7cd2d13f800c6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

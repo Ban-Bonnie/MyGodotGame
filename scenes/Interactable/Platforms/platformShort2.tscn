@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://diq1o4y3u3dy6"]
+
+[ext_resource type="Texture2D" uid="uid://dsq2ygo3l55p5" path="res://graphics/14-TileSets/Decorations (32x32).png" id="1_2ggha"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ggha"]
+size = Vector2(29, 10)
+
+[node name="AnimatedSprite2D" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2ggha")
+region_enabled = true
+region_rect = Rect2(160, 64, 32, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_2ggha")
+one_way_collision = true
