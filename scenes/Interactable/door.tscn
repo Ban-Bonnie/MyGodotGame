@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://brn0xmwpsqemo"]
+[gd_scene format=3 uid="uid://brn0xmwpsqemo"]
 
 [ext_resource type="Texture2D" uid="uid://cmb0wpf0gvjit" path="res://graphics/11-Door/Closiong (46x56).png" id="1_83dcw"]
 [ext_resource type="Texture2D" uid="uid://dfmbe3rmdviw" path="res://graphics/11-Door/Idle.png" id="2_la1wf"]
@@ -85,19 +85,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83dcw"]
 size = Vector2(44, 53)
 
-[node name="Door" type="Node2D"]
+[node name="Door" type="Node2D" unique_id=1836338142]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1803400893]
 position = Vector2(24, -27)
 sprite_frames = SubResource("SpriteFrames_j2w5t")
 animation = &"idle"
 autoplay = "idle"
 script = ExtResource("4_hw6j3")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=669388828]
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1015920672]
 position = Vector2(24, -27.5)
 shape = SubResource("RectangleShape2D_83dcw")
 

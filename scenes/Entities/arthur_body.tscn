@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dh1qcgok2tjbh"]
+[gd_scene format=3 uid="uid://dh1qcgok2tjbh"]
 
 [ext_resource type="Script" uid="uid://c1a25b5r7fdav" path="res://script/arthur_body.gd" id="1_pm50j"]
 [ext_resource type="Texture2D" uid="uid://g8lwt13bed4t" path="res://graphics/01-Camelot/arthurPendragon_.png" id="1_qyjk6"]
@@ -172,37 +172,36 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r2tvp")
 }],
-"loop": false,
+"loop": true,
 "name": &"run",
-"speed": 6.0
+"speed": 10.0
 }]
 
-[node name="arthur_body" type="CharacterBody2D" groups=["physical users", "players"]]
+[node name="arthur_body" type="CharacterBody2D" unique_id=285794245 groups=["physical users", "players"]]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_pm50j")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=960855770]
 position = Vector2(0.125, 0.5)
 shape = SubResource("RectangleShape2D_qyjk6")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=733066241]
 z_index = 5
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_105gu")
-animation = &"hurt"
-frame = 3
-frame_progress = 1.0
+animation = &"run"
+frame_progress = 0.6435576
 
-[node name="jumpAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="jumpAudio" type="AudioStreamPlayer2D" parent="." unique_id=1749679877]
 position = Vector2(20, -21)
 stream = ExtResource("3_105gu")
 volume_db = 1.0
 
-[node name="hurtAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="hurtAudio" type="AudioStreamPlayer2D" parent="." unique_id=1862445210]
 stream = ExtResource("4_og5e8")
 
-[node name="dieAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="dieAudio" type="AudioStreamPlayer2D" parent="." unique_id=1043044539]
 stream = ExtResource("5_xrqen")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

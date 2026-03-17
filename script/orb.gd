@@ -23,10 +23,10 @@ func _ready() -> void:
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("magic users") and body.is_in_group("players"):
-		
 		merlin_body.orb_collected() 
 		play("collected")
 		self.queue_free()
+		
 	elif body.is_in_group("players") and not body.is_in_group("magic users"):
 		flash_timer = 0.0
 		flash_phase = "to_red"

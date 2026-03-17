@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://crx3cehhg4qvq"]
+
+[ext_resource type="Script" uid="uid://copeh4pxt3nvo" path="res://script/main_menu.gd" id="1_pqf06"]
+
+[node name="Main Menu" type="Node2D" unique_id=858491280]
+script = ExtResource("1_pqf06")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=17450516]
+position = Vector2(214, 120)
+zoom = Vector2(2.7, 2.7)
+
+[node name="button_manager" type="Control" parent="." unique_id=115913023]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play" type="Button" parent="button_manager" unique_id=1822864569]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 51.0
+offset_right = 262.0
+offset_bottom = 82.0
+text = "PLAY"
+
+[node name="Settings" type="Button" parent="button_manager" unique_id=2136860309]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 95.0
+offset_right = 262.0
+offset_bottom = 126.0
+text = "Settings"
+
+[node name="Quit" type="Button" parent="button_manager" unique_id=1451740691]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 139.0
+offset_right = 263.0
+offset_bottom = 170.0
+text = "QUIT"
+
+[connection signal="pressed" from="button_manager/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="button_manager/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="button_manager/Quit" to="." method="_on_quit_pressed"]

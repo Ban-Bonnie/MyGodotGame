@@ -9,10 +9,9 @@ const FALL_MULTIPLIER := 1.8
 
 
 #status and health
-var health = 3
+var health = 5
 var isAlive: bool = true
 var isTakingDamage: bool = false
-
 
 
 #Push Constants
@@ -23,7 +22,6 @@ const BLOCK_MAX_VELOCITY = 180
 @onready var jump_audio: AudioStreamPlayer2D = $jumpAudio
 @onready var hurt_audio: AudioStreamPlayer2D = $hurtAudio
 @onready var die_audio: AudioStreamPlayer2D = $dieAudio
-
 
 
 #Movement ni arturo
@@ -38,11 +36,10 @@ func _physics_process(delta: float) -> void:
 # INFINITE JUMP ENABLED
 # DELETE "true" AND RESTORE "is_on_floor()" TO REMOVE INFINITE JUMP
 	if Input.is_action_just_pressed("P2-up") and true and !isTakingDamage:
+		jump_audio.play()
 		velocity.y = JUMP_VELOCITY
-
 		
-	if Input.is_action_just_pressed("P2-taunt"):
-		take_damage(1)
+
 	
 	#damage weight
 	if isTakingDamage:
@@ -68,7 +65,7 @@ func _physics_process(delta: float) -> void:
 		var collision_block = collision.get_collider()
 		if collision_block.is_in_group("pushables") and abs(collision_block.get_linear_velocity().x) < BLOCK_MAX_VELOCITY:
 			collision_block.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
-	
+		else: pass
 
 	move_and_slide()
 	

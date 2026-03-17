@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://tgqrqdwlkwg1"]
+[gd_scene format=3 uid="uid://tgqrqdwlkwg1"]
 
 [ext_resource type="Texture2D" uid="uid://d4jkyuy0jbr0r" path="res://graphics/miscellaneous sprites/orb_collected_anim_strip_5.png" id="1_ti1xh"]
 [ext_resource type="Texture2D" uid="uid://nywjraiqv7po" path="res://graphics/miscellaneous sprites/orb_anim_strip_6.png" id="2_urg5t"]
@@ -99,37 +99,27 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdrql"]
 radius = 9.6
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u41nq"]
-radius = 1.5999999
-height = 19.2
-
-[node name="MagicOrb" type="AnimatedSprite2D"]
+[node name="MagicOrb" type="AnimatedSprite2D" unique_id=654180886]
 z_index = 6
 scale = Vector2(1.875, 1.875)
 sprite_frames = SubResource("SpriteFrames_76tdh")
 autoplay = "default"
 script = ExtResource("3_urg5t")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=6190313]
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1900343195]
 position = Vector2(0, -5.3333335)
 shape = SubResource("CircleShape2D_kdrql")
 
-[node name="OrbCollected1" type="AudioStreamPlayer2D" parent="."]
+[node name="OrbCollected1" type="AudioStreamPlayer2D" parent="." unique_id=833967504]
 stream = ExtResource("4_u41nq")
 volume_db = -10.0
 
-[node name="OrbCollected2" type="AudioStreamPlayer2D" parent="."]
+[node name="OrbCollected2" type="AudioStreamPlayer2D" parent="." unique_id=483203807]
 stream = ExtResource("5_mbmdq")
 volume_db = -10.0
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -6.4)
-shape = SubResource("CapsuleShape2D_u41nq")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

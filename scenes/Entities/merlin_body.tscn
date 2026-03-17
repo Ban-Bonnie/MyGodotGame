@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://5bwbwwi27s"]
+[gd_scene format=3 uid="uid://5bwbwwi27s"]
 
 [ext_resource type="Texture2D" uid="uid://b2h1f577yosx5" path="res://graphics/01-Camelot/merlin_.png" id="1_3pce5"]
 [ext_resource type="Script" uid="uid://b8wtwyxgdsswn" path="res://script/merlin_body.gd" id="1_vbfk1"]
@@ -201,35 +201,35 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_58yb8")
 }],
-"loop": false,
+"loop": true,
 "name": &"run",
-"speed": 6.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4l4gm"]
 size = Vector2(12, 17)
 
-[node name="merlin_body" type="CharacterBody2D" groups=["magic users", "players"]]
+[node name="merlin_body" type="CharacterBody2D" unique_id=2056153353 groups=["magic users", "players"]]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_vbfk1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2035716334]
 z_index = 5
 position = Vector2(-1, -3)
 sprite_frames = SubResource("SpriteFrames_fyx60")
-animation = &"jump"
+animation = &"run"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=326185225]
 shape = SubResource("RectangleShape2D_4l4gm")
 
-[node name="buff sfx" type="AudioStreamPlayer2D" parent="."]
+[node name="buff sfx" type="AudioStreamPlayer2D" parent="." unique_id=1702792025]
 position = Vector2(7, -11)
 stream = ExtResource("3_8jjwd")
 volume_db = -5.0
 panning_strength = 0.88
 
-[node name="Glorious Evolution" type="AudioStreamPlayer2D" parent="."]
+[node name="Glorious Evolution" type="AudioStreamPlayer2D" parent="." unique_id=978805172]
 position = Vector2(7, -11)
 stream = ExtResource("4_e0riu")
 volume_db = 10.0
