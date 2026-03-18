@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dnrbgjwkjjejp"]
 
+[ext_resource type="Script" uid="uid://dwnal5wxy4r8e" path="res://script/level spawns/Level1.gd" id="1_1rkxl"]
 [ext_resource type="Texture2D" uid="uid://3gx3827e2hvn" path="res://graphics/14-TileSets/Terrain (32x32).png" id="1_r5hxi"]
 [ext_resource type="Texture2D" uid="uid://dsq2ygo3l55p5" path="res://graphics/14-TileSets/Decorations (32x32).png" id="2_sinci"]
 [ext_resource type="PackedScene" uid="uid://dh1qcgok2tjbh" path="res://scenes/Entities/arthur_body.tscn" id="3_h8pyv"]
@@ -16,8 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://d32t3m30v8ux" path="res://scenes/Interactable/chest.tscn" id="14_8qyie"]
 [ext_resource type="Script" uid="uid://brpvmm3dvhoar" path="res://scenes/Interactable/Platforms/magic_platform.gd" id="14_mk5lf"]
 [ext_resource type="PackedScene" uid="uid://be3lqi2mj872y" path="res://scenes/Interactable/cast_area.tscn" id="15_mornj"]
+[ext_resource type="Script" uid="uid://bmildcic7rtqp" path="res://script/gameManager.gd" id="17_j6ccq"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygjfp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mk5lf"]
 texture = ExtResource("1_r5hxi")
 2:2/0 = 0
 3:2/0 = 0
@@ -396,7 +398,7 @@ texture = ExtResource("1_r5hxi")
 34:23/0 = 0
 35:23/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_611at"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j6ccq"]
 texture = ExtResource("2_sinci")
 2:2/0 = 0
 3:2/0 = 0
@@ -462,10 +464,10 @@ texture = ExtResource("2_sinci")
 11:9/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_1wiy7"]
-sources/2 = SubResource("TileSetAtlasSource_ygjfp")
-sources/3 = SubResource("TileSetAtlasSource_611at")
+sources/2 = SubResource("TileSetAtlasSource_mk5lf")
+sources/3 = SubResource("TileSetAtlasSource_j6ccq")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1wiy7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rkxl"]
 texture = ExtResource("2_sinci")
 2:2/0 = 0
 3:2/0 = 0
@@ -548,9 +550,9 @@ texture = ExtResource("2_sinci")
 
 [sub_resource type="TileSet" id="TileSet_u1u68"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_1wiy7")
+sources/0 = SubResource("TileSetAtlasSource_1rkxl")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k24pf"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n47ub"]
 texture = ExtResource("1_r5hxi")
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1124,7 +1126,7 @@ texture = ExtResource("1_r5hxi")
 
 [sub_resource type="TileSet" id="TileSet_ygjfp"]
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_k24pf")
+sources/1 = SubResource("TileSetAtlasSource_n47ub")
 
 [sub_resource type="Animation" id="Animation_8qyie"]
 length = 0.001
@@ -1257,6 +1259,7 @@ _data = {
 }
 
 [node name="Game" type="Node2D" unique_id=1432658666]
+script = ExtResource("1_1rkxl")
 metadata/_edit_horizontal_guides_ = [231.0]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1288006561]
@@ -1294,29 +1297,34 @@ metadata/_edit_lock_ = true
 [node name="Characters" type="Node2D" parent="." unique_id=114456413]
 
 [node name="ArthurBody" parent="Characters" unique_id=689330430 instance=ExtResource("3_h8pyv")]
-position = Vector2(259, 142)
+position = Vector2(259, 147)
 scale = Vector2(1.2, 1.2)
 
 [node name="MerlinBody" parent="Characters" unique_id=444347642 instance=ExtResource("4_8qyie")]
-position = Vector2(59, 197)
+position = Vector2(53, 195)
 scale = Vector2(1.2, 1.2)
 
 [node name="Orbs" type="Node" parent="." unique_id=1015821259]
 
 [node name="orb" parent="Orbs" unique_id=501727183 instance=ExtResource("9_y0arc")]
 position = Vector2(213.00002, -29.000002)
+orb_id = "L1_orb_2"
 
 [node name="MagicOrb" parent="Orbs" unique_id=54724803 instance=ExtResource("9_y0arc")]
 position = Vector2(192.00002, -212)
+orb_id = "L1_orb_3"
 
 [node name="MagicOrb2" parent="Orbs" unique_id=1099040822 instance=ExtResource("9_y0arc")]
 position = Vector2(251, -343)
+orb_id = "L1_orb_4"
 
 [node name="MagicOrb3" parent="Orbs" unique_id=434637379 instance=ExtResource("9_y0arc")]
 position = Vector2(191, -550)
+orb_id = "L1_orb_5"
 
 [node name="MagicOrb4" parent="Orbs" unique_id=1942539726 instance=ExtResource("9_y0arc")]
 position = Vector2(86.00001, 23.000008)
+orb_id = "L1_orb_1"
 
 [node name="objects" type="Node2D" parent="." unique_id=179159511]
 
@@ -1351,13 +1359,16 @@ position = Vector2(-49, -453)
 rotation = -3.1415925
 
 [node name="Box2" parent="objects" unique_id=651691431 instance=ExtResource("4_ber8y")]
-position = Vector2(679, -590)
+position = Vector2(668, -589)
 
 [node name="chest" parent="objects" unique_id=2019874958 instance=ExtResource("14_8qyie")]
 position = Vector2(-79, -454.00003)
 
 [node name="Door" parent="objects" unique_id=1428746027 instance=ExtResource("11_r5hxi")]
 position = Vector2(701, -592)
+target_scene = "res://scenes/World Scenes/level_2.tscn"
+door_id = "L1_exit1"
+target_door_id = "L2_entry1"
 
 [node name="Door2" parent="objects" unique_id=808169003 instance=ExtResource("11_r5hxi")]
 position = Vector2(292, 160)
@@ -1445,6 +1456,13 @@ position = Vector2(190, -196)
 
 [node name="castArea" parent="." unique_id=1646267510 instance=ExtResource("15_mornj")]
 position = Vector2(57, 117.99999)
+
+[node name="gameManager" type="Node2D" parent="." unique_id=1837424387]
+script = ExtResource("17_j6ccq")
+
+[node name="PlayerSpawn_L1_exit1" type="Node2D" parent="." unique_id=1209058170]
+position = Vector2(726, -607)
+scale = Vector2(1.2, 1.2)
 
 [connection signal="skillCast" from="Characters/MerlinBody" to="castArea" method="_on_merlin_body_skill_cast"]
 [connection signal="activate_magic" from="castArea" to="Platforms/Magic platform" method="_on_cast_area_activate_magic"]

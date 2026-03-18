@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://brn0xmwpsqemo"]
 
 [ext_resource type="Texture2D" uid="uid://cmb0wpf0gvjit" path="res://graphics/11-Door/Closiong (46x56).png" id="1_83dcw"]
+[ext_resource type="Script" uid="uid://dd8jdb1466aav" path="res://script/door.gd" id="1_hw6j3"]
 [ext_resource type="Texture2D" uid="uid://dfmbe3rmdviw" path="res://graphics/11-Door/Idle.png" id="2_la1wf"]
 [ext_resource type="Texture2D" uid="uid://bx80t3yeu2ag2" path="res://graphics/11-Door/Opening (46x56).png" id="3_18pbm"]
-[ext_resource type="Script" uid="uid://dm1d5aw0gx2uy" path="res://script/DoorSprite.gd" id="4_hw6j3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q5w8r"]
 atlas = ExtResource("1_83dcw")
@@ -86,13 +86,14 @@ animations = [{
 size = Vector2(44, 53)
 
 [node name="Door" type="Node2D" unique_id=1836338142]
+z_index = 3
+script = ExtResource("1_hw6j3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1803400893]
 position = Vector2(24, -27)
 sprite_frames = SubResource("SpriteFrames_j2w5t")
 animation = &"idle"
 autoplay = "idle"
-script = ExtResource("4_hw6j3")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=669388828]
 collision_mask = 3
@@ -101,5 +102,5 @@ collision_mask = 3
 position = Vector2(24, -27.5)
 shape = SubResource("RectangleShape2D_83dcw")
 
-[connection signal="body_entered" from="Area2D" to="AnimatedSprite2D" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="AnimatedSprite2D" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0xcjx18qcymk"]
+[gd_scene format=3 uid="uid://d0xcjx18qcymk"]
 
 [ext_resource type="Texture2D" uid="uid://swmtxfcx3iiq" path="res://graphics/Box.png" id="2_n8ra1"]
 
@@ -100,17 +100,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpvlu"]
 size = Vector2(16, 16)
 
-[node name="Box" type="RigidBody2D" groups=["pushables"]]
+[node name="Box" type="RigidBody2D" unique_id=818523816 groups=["pushables"]]
+z_index = 7
 collision_layer = 4
 collision_mask = 7
 lock_rotation = true
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1188563952]
 position = Vector2(6, -12)
 scale = Vector2(0.921875, 0.921875)
 sprite_frames = SubResource("SpriteFrames_m0j7x")
 animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=985794705]
 position = Vector2(8, -9)
 shape = SubResource("RectangleShape2D_rpvlu")
