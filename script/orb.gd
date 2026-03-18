@@ -5,7 +5,6 @@ extends AnimatedSprite2D
 @onready var orb_sound_2: AudioStreamPlayer2D = $OrbCollected2
  
 @onready var merlin_body: CharacterBody2D = $"../../Characters/MerlinBody"
-@onready var static_body_2d: StaticBody2D = $StaticBody2D
 
 # Flash effect variables
 @export var flash_color: Color = Color(1, 0.2, 0.2)

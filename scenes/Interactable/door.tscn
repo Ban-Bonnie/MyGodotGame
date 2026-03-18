@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cmb0wpf0gvjit" path="res://graphics/11-Door/Closiong (46x56).png" id="1_83dcw"]
 [ext_resource type="Texture2D" uid="uid://dfmbe3rmdviw" path="res://graphics/11-Door/Idle.png" id="2_la1wf"]
 [ext_resource type="Texture2D" uid="uid://bx80t3yeu2ag2" path="res://graphics/11-Door/Opening (46x56).png" id="3_18pbm"]
-[ext_resource type="Script" uid="uid://dm1d5aw0gx2uy" path="res://scenes/Interactable/DoorSprite.gd" id="4_hw6j3"]
+[ext_resource type="Script" uid="uid://dm1d5aw0gx2uy" path="res://script/DoorSprite.gd" id="4_hw6j3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q5w8r"]
 atlas = ExtResource("1_83dcw")
