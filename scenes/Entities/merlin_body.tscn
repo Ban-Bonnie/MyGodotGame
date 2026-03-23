@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://5bwbwwi27s"]
 
-[ext_resource type="Texture2D" uid="uid://b2h1f577yosx5" path="res://graphics/01-Camelot/merlin_.png" id="1_3pce5"]
+[ext_resource type="Texture2D" uid="uid://ds2p46ebb5jdx" path="res://graphics/01-Camelot/merlin_.png" id="1_3pce5"]
 [ext_resource type="Script" uid="uid://b8wtwyxgdsswn" path="res://script/merlin_body.gd" id="1_vbfk1"]
 [ext_resource type="AudioStream" uid="uid://b4ik6gskm1802" path="res://audio/buff sfx.ogg" id="3_8jjwd"]
 [ext_resource type="AudioStream" uid="uid://btp324ps4ax4o" path="res://audio/glorious evolution.ogg" id="4_e0riu"]
@@ -500,8 +500,10 @@ animations = [{
 }]
 
 [node name="merlin_body" type="CharacterBody2D" unique_id=2056153353 groups=["magic users", "players"]]
+visibility_layer = 9
+z_index = 7
 collision_layer = 2
-collision_mask = 7
+collision_mask = 23
 script = ExtResource("1_vbfk1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2035716334]

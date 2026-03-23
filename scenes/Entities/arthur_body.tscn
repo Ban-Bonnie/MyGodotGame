@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dh1qcgok2tjbh"]
 
 [ext_resource type="Script" uid="uid://c1a25b5r7fdav" path="res://script/arthur_body.gd" id="1_pm50j"]
-[ext_resource type="Texture2D" uid="uid://g8lwt13bed4t" path="res://graphics/01-Camelot/arthurPendragon_.png" id="1_qyjk6"]
+[ext_resource type="Texture2D" uid="uid://cic2pr7aexrnm" path="res://graphics/01-Camelot/arthurPendragon_.png" id="1_qyjk6"]
 [ext_resource type="AudioStream" uid="uid://bekdh07374io1" path="res://audio/hut.ogg" id="3_105gu"]
 [ext_resource type="AudioStream" uid="uid://cc6hruwu501hg" path="res://audio/hurt.ogg" id="4_og5e8"]
 [ext_resource type="AudioStream" uid="uid://w83w7ioxdxo7" path="res://audio/die.ogg" id="5_xrqen"]
@@ -359,8 +359,10 @@ animations = [{
 }]
 
 [node name="arthur_body" type="CharacterBody2D" unique_id=285794245 groups=["physical users", "players"]]
+visibility_layer = 9
+z_index = 7
 collision_layer = 2
-collision_mask = 7
+collision_mask = 23
 script = ExtResource("1_pm50j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=960855770]

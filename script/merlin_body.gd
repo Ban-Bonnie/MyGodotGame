@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 
 # INFINITE JUMP ENABLED
 # DELETE "true" AND RESTORE "is_on_floor()" TO REMOVE INFINITE JUMP
-	if Input.is_action_just_pressed("P1-up") and true and !isTakingDamage:
+	if Input.is_action_just_pressed("P1-up") and is_on_floor() and !isTakingDamage:
 		velocity.y = JUMP_VELOCITY
 		
 	#Freeze player when taking damage
@@ -95,7 +95,6 @@ func take_damage(damage):
 func orb_collected():
 	buff_sfx.play()
 	orbs+=1
-	print(orbs)
 	if orbs==5:
 		glorious_evolution.play()
 		animated_sprite.play("evolution")
@@ -123,4 +122,7 @@ func deactivate_casting_aura():
 func game_over():
 	get_tree().reload_current_scene()
 	pass
-	
+
+func knockback(force: float, direction: Vector2):
+	# direction should be normalized (length = 1)
+	velocity = direction.normalized() * force

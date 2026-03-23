@@ -1320,7 +1320,7 @@ orb_id = "L1_orb_4"
 
 [node name="MagicOrb3" parent="Orbs" unique_id=434637379 instance=ExtResource("9_y0arc")]
 position = Vector2(191, -550)
-orb_id = "L1_orb_5"
+orb_id = " L1_orb_5"
 
 [node name="MagicOrb4" parent="Orbs" unique_id=1942539726 instance=ExtResource("9_y0arc")]
 position = Vector2(86.00001, 23.000008)
@@ -1387,6 +1387,7 @@ position = Vector2(173, 133)
 [node name="Magic platform" parent="Platforms" unique_id=764236048 instance=ExtResource("7_j6ccq")]
 position = Vector2(86, 36)
 script = ExtResource("14_mk5lf")
+animation_name = "magic_platform"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Magic platform" unique_id=86885094]
 libraries/ = SubResource("AnimationLibrary_mk5lf")
@@ -1424,8 +1425,8 @@ position = Vector2(83, -111)
 libraries/ = SubResource("AnimationLibrary_r5hxi")
 autoplay = &"mp2"
 
-[node name="AnimatableBody2D9" parent="Platforms" unique_id=1656118784 instance=ExtResource("7_j6ccq")]
-position = Vector2(123, -298)
+[node name="564t77nm" parent="Platforms" unique_id=1656118784 instance=ExtResource("7_j6ccq")]
+position = Vector2(133, -297)
 
 [node name="AnimatableBody2D15" parent="Platforms" unique_id=561626607 instance=ExtResource("6_mk5lf")]
 position = Vector2(185, -329)
@@ -1446,13 +1447,13 @@ position = Vector2(58, -443)
 position = Vector2(190, -443)
 
 [node name="AnimatableBody2D22" parent="Platforms" unique_id=558147356 instance=ExtResource("6_mk5lf")]
-position = Vector2(100, -196)
+position = Vector2(100, -192)
 
 [node name="AnimatableBody2D23" parent="Platforms" unique_id=160665787 instance=ExtResource("6_mk5lf")]
-position = Vector2(62, -196)
+position = Vector2(62, -192)
 
 [node name="AnimatableBody2D24" parent="Platforms" unique_id=378892322 instance=ExtResource("6_mk5lf")]
-position = Vector2(190, -196)
+position = Vector2(190, -192)
 
 [node name="castArea" parent="." unique_id=1646267510 instance=ExtResource("15_mornj")]
 position = Vector2(57, 117.99999)

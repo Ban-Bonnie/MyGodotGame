@@ -14,9 +14,12 @@ var is_collected = false
 func _ready() -> void:
 	self.animation_finished.connect(Callable(self, "_on_animation_finished"))
 	
+	if orb_id == "":
+		print("Missing orb ID")
 	#Destroy Orb if already Collected/Recorded
 	if GameManager.collected_orbs.has(orb_id):
 		queue_free()
+		
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("magic users") and body.is_in_group("players") and is_collected == false:
@@ -36,4 +39,3 @@ func _on_animation_finished():
 
 func record_orb_collected():
 	GameManager.collected_orbs[orb_id] = true
-	print(GameManager.collected_orbs)

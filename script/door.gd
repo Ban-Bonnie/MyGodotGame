@@ -1,4 +1,4 @@
-extends Node2D
+extends Node2D 
 
 @export var target_scene: String
 
@@ -41,7 +41,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func next_scene():
 	if target_scene != "":
 		GameManager.last_door_used = target_door_id
-		get_tree().change_scene_to_file(target_scene)
-		print(GameManager.last_door_used)
+		#get_tree().change_scene_to_file(target_scene) #Regular transition
+		CircleTransition.start_transition(target_scene) #Circular transition
 	else:
 		print("Next scene is empty")

@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 
 # INFINITE JUMP ENABLED
 # DELETE "true" AND RESTORE "is_on_floor()" TO REMOVE INFINITE JUMP
-	if Input.is_action_just_pressed("P2-up") and true and !isTakingDamage:
+	if Input.is_action_just_pressed("P2-up") and is_on_floor() and !isTakingDamage:
 		jump_audio.play()
 		velocity.y = JUMP_VELOCITY
 		
@@ -59,14 +59,14 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			animated_sprite.play("idle")
 	
-	#Push Interaction Code - crates and boxes
+# Push Interaction Code - crates and boxes
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collision_block = collision.get_collider()
-		if collision_block.is_in_group("pushables") and abs(collision_block.get_linear_velocity().x) < BLOCK_MAX_VELOCITY:
+		
+		# Make sure the collider still exists
+		if collision_block and collision_block.is_in_group("pushables") and abs(collision_block.get_linear_velocity().x) < BLOCK_MAX_VELOCITY:
 			collision_block.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
-		else: pass
-
 	move_and_slide()
 	
 
@@ -88,9 +88,10 @@ func take_damage(damage):
 func game_over():
 	get_tree().reload_current_scene()
 	pass
-	
 
-
+func knockback(force: float, direction: Vector2):
+	# direction should be normalized (length = 1)
+	velocity = direction.normalized() * force
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

@@ -2,10 +2,10 @@ extends AnimatedSprite2D
 
 @onready var cast_area: AnimatedSprite2D = $"." 
 @onready var press_key_guide: AnimatedSprite2D = $pressKeyGuide
-@onready var magic_platform: AnimatableBody2D = $"../Platforms/Magic platform"
 
 #signals
 signal activate_magic(index:int)
+@export var activate_platform_index: int
 
 func _ready() -> void:
 	press_key_guide.visible = true
@@ -39,7 +39,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 #Merlin Successful Chant
 func _on_merlin_body_skill_cast() -> void:
-	activate_magic.emit(0)
+	activate_magic.emit(activate_platform_index)
 	destroy()
 	
 	pass # Replace with function body.

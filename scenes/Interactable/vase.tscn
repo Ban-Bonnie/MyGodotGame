@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://lm0i1p37lvrb"]
+[gd_scene format=3 uid="uid://lm0i1p37lvrb"]
 
 [ext_resource type="Texture2D" uid="uid://d4loqbl2i6vrb" path="res://graphics/miscellaneous sprites/vase_breaking_anim_strip_5.png" id="1_2i5dv"]
 [ext_resource type="Texture2D" uid="uid://tbqau4jsx3cv" path="res://graphics/miscellaneous sprites/vase.png" id="2_3ipcw"]
@@ -60,21 +60,21 @@ radius = 6.736842
 [sub_resource type="CircleShape2D" id="CircleShape2D_2i5dv"]
 radius = 5.122326
 
-[node name="vase" type="AnimatedSprite2D" groups=["breakable"]]
+[node name="vase" type="AnimatedSprite2D" unique_id=351921091 groups=["breakable"]]
 scale = Vector2(1.1875, 1.1875)
 sprite_frames = SubResource("SpriteFrames_d0h8i")
 autoplay = "default"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1274452601]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 21
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1223139039]
 position = Vector2(0, 1.6842105)
 shape = SubResource("CircleShape2D_6sxgl")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1954188082]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=922764075]
 position = Vector2(0, 3.368421)
 shape = SubResource("CircleShape2D_2i5dv")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkv0axkc4og5t"]
+[gd_scene format=3 uid="uid://bkv0axkc4og5t"]
 
 [ext_resource type="Texture2D" uid="uid://cvw1hutmxeotk" path="res://graphics/miscellaneous sprites/tiki_torch_props_strip_12.png" id="1_eg7vc"]
 
@@ -35,10 +35,10 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 8.0
 }]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=641678950]
 sprite_frames = SubResource("SpriteFrames_dba04")
 autoplay = "default"
-frame_progress = 0.4514054
+frame_progress = 0.72504467

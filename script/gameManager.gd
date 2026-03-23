@@ -3,15 +3,11 @@ extends Node2D
 # Stores the last door used for scene transitions
 var last_door_used: String = ""
 
+#Collected Entities
 var collected_orbs: Dictionary = {}
 
 
+#Game Interactions
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#Parcival-L2
+var parcival_interactions = {}

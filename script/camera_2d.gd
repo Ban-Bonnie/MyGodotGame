@@ -54,6 +54,6 @@ func _process(delta):
 	r = r.grow_individual(margin.x, margin.y, margin.x, margin.y)
 
 	# Determine zoom to fit all targets on screen
-	var z
+	var _z
 	if r.size.x > r.size.y * screen_size.aspect():
-		z = 1 / clamp(r.size.x / screen_size.x, min_zoom, max_zoom)
+		_z = 1 / clamp(r.size.x / screen_size.x, min_zoom, max_zoom)
