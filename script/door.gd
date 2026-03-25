@@ -12,7 +12,7 @@ var players_inside: Array = []
 
 var door_is_open = false
 
-func _process(delta: float) -> void:
+func _process(float) -> void:
 	# Only allow scene change if door is open and both players inside
 	if door_is_open and players_inside.size() == 2:
 		if Input.is_action_just_pressed("interact"):
@@ -39,8 +39,9 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 
 func next_scene():
-	if target_scene != "":
-		GameManager.last_door_used = target_door_id
+	if target_scene.strip_edges() != "":
+		target_scene = target_scene.strip_edges()
+		GameManager.last_door_used = target_door_id.strip_edges()
 		#get_tree().change_scene_to_file(target_scene) #Regular transition
 		CircleTransition.start_transition(target_scene) #Circular transition
 	else:

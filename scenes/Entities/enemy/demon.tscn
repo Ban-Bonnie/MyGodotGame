@@ -292,8 +292,10 @@ radius = 25.000004
 radius = 29.817007
 
 [node name="demon" type="CharacterBody2D" unique_id=107254843 groups=["enemy"]]
-position = Vector2(5.000002, -5.999998)
+position = Vector2(5.0000005, -6)
 scale = Vector2(0.5200002, 0.5200002)
+collision_layer = 16
+collision_mask = 87
 script = ExtResource("1_5qw1p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1458155171]
@@ -309,8 +311,8 @@ shape = SubResource("CircleShape2D_28a44")
 
 [node name="hurtbox" type="Area2D" parent="." unique_id=684977906]
 position = Vector2(-3.8461485, 3.6679764e-06)
-collision_layer = 16
-collision_mask = 6
+collision_layer = 0
+collision_mask = 22
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=847223259]
 position = Vector2(-4.8076897, 10.7932625)
@@ -318,8 +320,8 @@ scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("CircleShape2D_5qw1p")
 
 [node name="ground_check" type="RayCast2D" parent="." unique_id=875541604]
-position = Vector2(-40.384594, 5.769232)
-target_position = Vector2(-7.6293945e-06, 48.076897)
+position = Vector2(-36.538445, 8)
+target_position = Vector2(-3.8146973e-06, 30.769217)
 collide_with_areas = true
 
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

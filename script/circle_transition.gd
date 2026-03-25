@@ -25,7 +25,7 @@ func _change_scene(target_scene: String):
 	# Change the scene
 	get_tree().change_scene_to_file(target_scene)
 	
-	# Expand circle back
+	# Expand circle back 
 	shader_material.set_shader_parameter("radius", 0.0)
 	var tween = create_tween()
 	tween.tween_property(shader_material, "shader_parameter/radius", 1.0, 0.5)

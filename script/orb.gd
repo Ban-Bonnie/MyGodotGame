@@ -4,8 +4,6 @@ extends AnimatedSprite2D
 @onready var orb_sound_1: AudioStreamPlayer2D = $OrbCollected1
 @onready var orb_sound_2: AudioStreamPlayer2D = $OrbCollected2
 
-@onready var merlin_body: CharacterBody2D = $"../../Characters/MerlinBody"
-
 @export var orb_id : String
 
 var is_collected = false
@@ -23,7 +21,7 @@ func _ready() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("magic users") and body.is_in_group("players") and is_collected == false:
-		merlin_body.orb_collected()
+		body.orb_collected()
 		play("collected")
 		is_collected = true
 		

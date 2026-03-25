@@ -12,7 +12,7 @@ func _ready() -> void:
 	press_key_guide.modulate.a = 0.0  # start fully transparent
 	
 
-func _process(delta: float) -> void:
+func _process(float) -> void:
 	pass
 
 

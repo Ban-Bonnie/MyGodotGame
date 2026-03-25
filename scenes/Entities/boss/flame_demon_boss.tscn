@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://buwv8e83e23al"]
 
 [ext_resource type="Texture2D" uid="uid://d24renm24jeoa" path="res://graphics/enemy/Demon Slime/demon_slime_FREE_v1.0_288x160_spritesheet.png" id="1_2oak0"]
+[ext_resource type="Script" uid="uid://coo7fpwfhrc24" path="res://scenes/Entities/boss/flame_demon_boss.gd" id="1_ng5tv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ng5tv"]
+radius = 55.22124
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ng5tv"]
 atlas = ExtResource("1_2oak0")
@@ -362,7 +366,7 @@ region = Rect2(2880, 160, 288, 160)
 atlas = ExtResource("1_2oak0")
 region = Rect2(3168, 160, 288, 160)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6go6p"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_2oak0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -498,7 +502,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_225fx")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 10.0
 }, {
@@ -730,18 +734,25 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2oak0"]
-radius = 55.22124
+[node name="StaticBody2D" type="StaticBody2D" unique_id=18851130]
+script = ExtResource("1_ng5tv")
 
-[node name="FlameDemonBoss" type="AnimatedSprite2D" unique_id=377251502]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=648244259]
+position = Vector2(172.95544, 141.16815)
+scale = Vector2(1.4754101, 1.4500002)
+shape = SubResource("CircleShape2D_ng5tv")
+
+[node name="FlameDemonBoss" type="AnimatedSprite2D" parent="." unique_id=251433433]
 position = Vector2(173.99998, 96.00001)
 scale = Vector2(1.4754101, 1.4500002)
-sprite_frames = SubResource("SpriteFrames_6go6p")
-animation = &"idle"
+sprite_frames = SubResource("SpriteFrames_2oak0")
+animation = &"hurt"
 autoplay = "idle"
 
-[node name="hitbox" type="Area2D" parent="." unique_id=428791708]
+[node name="SummonPointL" type="Marker2D" parent="." unique_id=1790795331]
+position = Vector2(-104, 170)
+gizmo_extents = 42.5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=927449590]
-position = Vector2(-0.7079644, 31.150442)
-shape = SubResource("CircleShape2D_2oak0")
+[node name="SummonPointR" type="Marker2D" parent="." unique_id=944964449]
+position = Vector2(508, 175)
+gizmo_extents = 42.5

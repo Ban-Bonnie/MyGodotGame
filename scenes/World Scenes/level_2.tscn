@@ -18,8 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://be3lqi2mj872y" path="res://scenes/Interactable/cast_area.tscn" id="15_l7f4j"]
 [ext_resource type="Script" uid="uid://brpvmm3dvhoar" path="res://scenes/Interactable/Platforms/magic_platform.gd" id="16_ahks1"]
 [ext_resource type="PackedScene" uid="uid://cauf62lwmxkhx" path="res://scenes/Interactable/arrow_right.tscn" id="18_a6wje"]
+[ext_resource type="PackedScene" uid="uid://b448v3pgj12yp" path="res://scenes/Entities/enemy/invisiwall.tscn" id="19_0mg8p"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43foq"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a6wje"]
 texture = ExtResource("1_pjya0")
 2:2/0 = 0
 3:2/0 = 0
@@ -398,7 +399,7 @@ texture = ExtResource("1_pjya0")
 34:23/0 = 0
 35:23/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xb60l"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0mg8p"]
 texture = ExtResource("2_yts77")
 2:2/0 = 0
 3:2/0 = 0
@@ -464,10 +465,10 @@ texture = ExtResource("2_yts77")
 11:9/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_c181t"]
-sources/2 = SubResource("TileSetAtlasSource_43foq")
-sources/3 = SubResource("TileSetAtlasSource_xb60l")
+sources/2 = SubResource("TileSetAtlasSource_a6wje")
+sources/3 = SubResource("TileSetAtlasSource_0mg8p")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klg6a"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vibp5"]
 texture = ExtResource("2_yts77")
 2:2/0 = 0
 3:2/0 = 0
@@ -550,9 +551,9 @@ texture = ExtResource("2_yts77")
 
 [sub_resource type="TileSet" id="TileSet_sxgxo"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_klg6a")
+sources/0 = SubResource("TileSetAtlasSource_vibp5")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c0txp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_din7r"]
 texture = ExtResource("1_pjya0")
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1126,7 +1127,7 @@ texture = ExtResource("1_pjya0")
 
 [sub_resource type="TileSet" id="TileSet_i25qd"]
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_c0txp")
+sources/1 = SubResource("TileSetAtlasSource_din7r")
 
 [sub_resource type="Animation" id="Animation_a6wje"]
 resource_name = "L2_magic_platform"
@@ -1195,24 +1196,24 @@ metadata/_edit_lock_ = true
 [node name="Box" parent="MapLayers" unique_id=818523816 instance=ExtResource("13_16t4x")]
 position = Vector2(747, 149)
 
-[node name="vase" parent="MapLayers" unique_id=351921091 instance=ExtResource("12_i25qd")]
-position = Vector2(732.00006, 216)
-
-[node name="Players" type="Node2D" parent="." unique_id=2008967632]
-
-[node name="arthur_body" parent="Players" unique_id=285794245 instance=ExtResource("6_c181t")]
-position = Vector2(833, 135)
-
-[node name="merlin_body" parent="Players" unique_id=2056153353 instance=ExtResource("7_klg6a")]
-position = Vector2(814, 134)
-
-[node name="ParcivalNPC" parent="Players" unique_id=102592279 instance=ExtResource("9_klg6a")]
+[node name="ParcivalNPC" parent="." unique_id=102592279 instance=ExtResource("9_klg6a")]
 position = Vector2(284, 133)
 patrol_distance = 100.0
 speed = 100.0
 
+[node name="Players" type="Node2D" parent="." unique_id=2008967632]
+
+[node name="arthur_body" parent="Players" unique_id=285794245 instance=ExtResource("6_c181t")]
+position = Vector2(133, 136)
+
+[node name="merlin_body" parent="Players" unique_id=2056153353 instance=ExtResource("7_klg6a")]
+position = Vector2(117, 135)
+
 [node name="PlayerSpawn_L2_entry1" type="Node2D" parent="." unique_id=1156003979]
 position = Vector2(66, 134)
+
+[node name="PlayerSpawn_L2_exit1" type="Node2D" parent="." unique_id=1186638318]
+position = Vector2(1207, -139)
 
 [node name="Door2" parent="." unique_id=1836338142 instance=ExtResource("3_yts77")]
 position = Vector2(42, 145)
@@ -1227,18 +1228,18 @@ metadata/_edit_lock_ = true
 [node name="Objects" type="Node2D" parent="." unique_id=584124587]
 
 [node name="torch" parent="Objects" unique_id=1185960316 instance=ExtResource("4_43foq")]
-position = Vector2(247, 132)
+position = Vector2(247, 134)
 frame_progress = 0.27786893
 
 [node name="torch2" parent="Objects" unique_id=1361904922 instance=ExtResource("4_43foq")]
-position = Vector2(320, 133)
+position = Vector2(319, 135)
 frame_progress = 0.27786893
 
 [node name="Box" parent="Objects" unique_id=1613612218 instance=ExtResource("13_16t4x")]
-position = Vector2(585, 167)
+position = Vector2(348, 147)
 
 [node name="Camera2DLvl2" type="Camera2D" parent="." unique_id=572620817]
-position = Vector2(195, 121)
+position = Vector2(202, 136)
 zoom = Vector2(3, 3)
 limit_left = -9999944
 limit_top = -9999898
@@ -1259,7 +1260,7 @@ position = Vector2(1309, -83)
 position = Vector2(560, 174)
 
 [node name="AnimatedSprite2D" parent="platforms" unique_id=792900373 instance=ExtResource("13_hsyvd")]
-position = Vector2(635, 156)
+position = Vector2(648, 155)
 
 [node name="AnimatedSprite2D3" parent="platforms" unique_id=892052859 instance=ExtResource("13_hsyvd")]
 position = Vector2(706, 166)
@@ -1277,7 +1278,7 @@ animation_name = "L2_magic_platform"
 libraries/ = SubResource("AnimationLibrary_vibp5")
 
 [node name="AnimatedSprite2D2" parent="platforms" unique_id=1583778153 instance=ExtResource("13_hsyvd")]
-position = Vector2(1260, 89)
+position = Vector2(1260, 84)
 
 [node name="AnimatedSprite2D5" parent="platforms" unique_id=598261938 instance=ExtResource("13_hsyvd")]
 position = Vector2(1260, 6)
@@ -1295,11 +1296,13 @@ position = Vector2(1309, -37)
 
 [node name="CharacterBody2D" parent="enemies" unique_id=107254843 instance=ExtResource("7_sxgxo")]
 position = Vector2(697, 206.00002)
+max_hp = 2
 
 [node name="CharacterBody2D2" parent="enemies" unique_id=926360133 instance=ExtResource("7_sxgxo")]
 position = Vector2(786.00006, 207)
 move_speed = 30.0
 max_hp = 2
+patrol_type = 1
 
 [node name="Box" parent="." unique_id=2046763246 instance=ExtResource("13_16t4x")]
 position = Vector2(1056, 129)
@@ -1309,6 +1312,9 @@ position = Vector2(1007, 122)
 
 [node name="Door3" parent="." unique_id=1101096863 instance=ExtResource("3_yts77")]
 position = Vector2(1154, -127)
+target_scene = "res://scenes/World Scenes/level_3.tscn"
+door_id = "L2_exit1"
+target_door_id = "L3_entry1"
 
 [node name="vase" parent="." unique_id=564997965 instance=ExtResource("12_i25qd")]
 position = Vector2(1145, -135)
@@ -1316,6 +1322,17 @@ position = Vector2(1145, -135)
 [node name="AnimatedSprite2D" parent="." unique_id=1488011306 instance=ExtResource("4_43foq")]
 position = Vector2(1215, -139)
 frame_progress = 0.8156061
+
+[node name="demon" parent="." unique_id=2127166283 instance=ExtResource("7_sxgxo")]
+position = Vector2(556, 147)
+max_hp = 2
+patrol_type = 1
+
+[node name="Invisiwall" parent="." unique_id=828488033 instance=ExtResource("19_0mg8p")]
+position = Vector2(514, 163)
+
+[node name="Invisiwall2" parent="." unique_id=1028928020 instance=ExtResource("19_0mg8p")]
+position = Vector2(606, 165)
 
 [connection signal="skillCast" from="Players/merlin_body" to="platforms/castArea" method="_on_merlin_body_skill_cast"]
 [connection signal="activate_magic" from="platforms/castArea" to="platforms/magic_platform" method="_on_cast_area_activate_magic"]

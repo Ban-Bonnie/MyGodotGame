@@ -1270,6 +1270,11 @@ limit_top = -9999998
 limit_right = 9999999
 limit_bottom = 238
 script = ExtResource("11_sinci")
+move_speed = null
+zoom_speed = null
+min_zoom = null
+max_zoom = null
+margin = null
 
 [node name="AudioStreamPlayer2D" parent="." unique_id=1758261773 instance=ExtResource("8_6l077")]
 position = Vector2(45, 48)

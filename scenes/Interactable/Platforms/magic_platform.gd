@@ -30,3 +30,10 @@ func _on_cast_area_activate_magic(index: int) -> void:
 	if index == platform_index:
 		activate_platform()
 		pass # Replace with function body.
+
+
+func _on_pressure_plate_plate_activated() -> void:
+	print("Signal received")
+	activate_platform()
+		
+	pass # Replace with function body.

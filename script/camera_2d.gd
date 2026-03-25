@@ -6,23 +6,21 @@ extends Camera2D
 @export var max_zoom = 0.5       # Camera won't zoom farther than this
 @export var margin = Vector2(400, 200)  # Buffer area around targets
 
-# Camera targets
-@onready var arthur_body: CharacterBody2D = $"../Characters/ArthurBody"
-@onready var merlin_body: CharacterBody2D = $"../Characters/MerlinBody"
-var targets: Array[CharacterBody2D] = []  # Array of targets to track
+var targets: Array[CharacterBody2D] = []
 
 @onready var screen_size = get_viewport_rect().size
 
 func _ready():
-	# Initialize targets after they exist
-	targets = [arthur_body, merlin_body]
+	# Type-safe assignment: only add CharacterBody2D nodes from "players" group
+	targets.clear()
+	for node in get_tree().get_nodes_in_group("players"):
+		if node is CharacterBody2D:
+			targets.append(node)
 
-# Add a target to track
 func add_target(t):
 	if t and t not in targets:
 		targets.append(t)
 
-# Remove a target from tracking
 func remove_target(t):
 	if t in targets:
 		targets.erase(t)
